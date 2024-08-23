@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Creator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1 class="title">Resume Creator</h1>
+
+    <div class="filter-container">
+        <div class="filter">
+            <label for="filter-select">Filter by Name:</label>
+            <select id="filter-select">
+                <option value="">--Select--</option>
+                <!-- Options will be populated dynamically -->
+            </select>
+        </div>
+    
+
+    <table id="data-table"></table>
+
+    <div class="container" id="cv-content" style="background-color:#E5F1F7;">
+        <div class="photo">
+            <a href="#" id="cv-image-link">
+                <img id="cv-image" alt="Profile Photo">
+            </a>
+        </div>
+
+        <h2>Resume</h2>
+
+        <div class="section">
+            <div class="section-title">PERSÖNLICHE DATEN:</div>
+            <div class="content">
+                <p style="display: flex; align-items: center; margin: 10px 0;">
+                    <label for="cv-name" style="width: 200px; font-weight: bold; text-align: left; margin-right: 10px;">Name:</label>
+                    <input type="text" id="cv-name"  placeholder=" Enter Name" style="flex: 1; padding: 5px; border: none; border-radius: 4px; box-sizing: border-box;">
+                </p>
+                <p style="display: flex; align-items: center; margin: 10px 0;">
+                    <label for="cv-dob" style="width: 200px; font-weight: bold; text-align: left; margin-right: 10px;">Geburtsdatum:</label>
+                    <input type="text" id="cv-dob" name="dob" placeholder="Eingeben Geburtsdatum" style="flex: 1; padding: 5px; border: 1px solid #ccc; border: none; border-radius: 4px; box-sizing: border-box;">
+                </p>
+                <p style="display: flex; align-items: center; margin: 10px 0;">
+                    <label for="cv-nationality" style="width: 200px; font-weight: bold; text-align: left; margin-right: 10px;">Staatsangehörigkeit:</label>
+                    <input type="text" id="cv-nationality" name="nationality" placeholder="Staatsangehörigkeit" style="flex: 1; padding: 5px; border: 1px solid #ccc; border-radius: 4px; border: none; box-sizing: border-box;">
+                </p>
+                <p style="display: flex; align-items: center; margin: 10px 0;">
+                    <label for="cv-Stadt" style="width: 200px; font-weight: bold; text-align: left; margin-right: 10px;">Tribe:</label>
+                    <input type="text" id="cv-Stadt" name="Stadt" placeholder="Eingeben Tribe" style="flex: 1; padding: 5px; border: 1px solid #ccc; border-radius: 4px; border: none; box-sizing: border-box;">
+                </p>
+                <p style="display: flex; align-items: center; margin: 10px 0;">
+                    <label for="cv-marital-status" style="width: 200px; font-weight: bold; text-align: left; margin-right: 10px;">Eingeben Familienstand:</label>
+                    <input type="text" id="cv-marital-status" name="marital-status" placeholder="Familienstand" style="flex: 1; padding: 5px; border: 1px solid #ccc; border-radius: 4px; border: none; box-sizing: border-box;">
+                </p>
+                <p style="display: flex; align-items: center; margin: 10px 0;">
+                    <label for="cv-phone" style="width: 200px; font-weight: bold; text-align: left; margin-right: 10px;">Telefon:</label>
+                    <input type="text" id="cv-phone" name="phone" placeholder="Eingeben Telefon" style="flex: 1; padding: 5px; border: 1px solid #ccc; border-radius: 4px; border: none; box-sizing: border-box;">
+                </p>
+                <p style="display: flex; align-items: center; margin: 10px 0;">
+                    <label for="cv-email" style="width: 200px; font-weight: bold; text-align: left; margin-right: 10px;">E-Mail:</label>
+                    <input type="email" id="cv-email" name="email" placeholder="Eingeben E-Mail" style="flex: 1; padding: 5px; border: 1px solid #ccc; border-radius: 4px; border: none; box-sizing: border-box;">
+                </p>
+
+                <p style="display: flex; align-items: center; margin: 10px 0;">
+                    <label for="profile-picture" style="font-weight: bold; margin-right: 10px;">Profile Picture:</label>
+                    <input type="file" id="profile-picture" accept="image/*" style="padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+                </p>
+        
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">PROFIL/ BERUFLICHES ZIEL:</div>
+            <div class="content" contenteditable="true">
+                <p style="margin: 10px 0;">
+                    <label for="cv-additional-info" style="display: block; font-weight: bold; margin-bottom: 5px;"></label>
+                    <textarea id="cv-additional-info" name="additional-info" placeholder="Additional Information" 
+                    style="width: 100%; min-height: 100px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; resize: none; overflow: auto;"></textarea>
+                </p>
+            </div>
+        </div>
+        
+
+        <div class="section">
+            <div class="section-title">PRAKTIKA (KLINISCH) or BERUFSERFAHRUNG:</div>
+            <div class="content" id="cv-experience" contenteditable="true">
+                <ul id="cv-experience-list">
+                    <!-- experience will be populated dynamically here -->
+                </ul>
+                
+            </div>
+        </div>
+        
+
+        <div class="section">
+            <div class="section-title">BILDUNG:</div>
+            <div class="content"  contenteditable="true">
+                <ul id="cv-education">
+                    <!-- education will be populated dynamically here -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">WEITERBILDUNG:</div>
+            <div class="content" contenteditable="true">
+                <ul id="cv-training">
+                    <!-- trainings will be populated dynamically here -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">FÄHIGKEITEN:</div>
+            <div class="content" contenteditable="true">
+                <ul id="cv-skills-list">
+                    <!-- Skills will be populated dynamically here -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">SPRACHKENNTNISSE:</div>
+            <div class="content" contenteditable="true">
+                <ul id="cv-languages">
+                    <!-- languages will be populated dynamically here -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">INTERESSEN UND HOBBYS:</div>
+            <div class="content" contenteditable="true">
+                <ul id="cv-hobbies">
+                    <!-- hobbies will be populated dynamically here -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">REFERENZEN:</div>
+            <div class="content" contenteditable="true">
+                <ul id="cv-referees">
+                    <!-- referees will be populated dynamically here -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="logos">
+            <!-- <img src="./image_2024_08_16T08_44_16_284Z.png" alt="Logo 1">
+            <img src="./image_2024_08_16T08_44_16_284Z.png" alt="Logo 2">
+            <img src="./gettyimages-1437816897-612x612.jpg" alt="Logo 3"> -->
+        </div>
+
+        <div class="download-btn">
+            <button onclick="downloadPDF()">Download as PDF</button>
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
